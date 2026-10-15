@@ -7,6 +7,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Controller
 public class AddressBookViewController {
 
@@ -14,6 +17,14 @@ public class AddressBookViewController {
 
     public AddressBookViewController(AddressBookRepository addressBookRepository) {
         this.addressBookRepository = addressBookRepository;
+    }
+
+    @GetMapping("/")
+    public String home(Model model) {
+        List<AddressBook> books = new ArrayList<>();
+        addressBookRepository.findAll().forEach(books::add);
+        model.addAttribute("addressBooks", books);
+        return "index";
     }
 
     @GetMapping("/addressbook/{id}")

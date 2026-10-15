@@ -11,6 +11,7 @@
     </style>
 </head>
 <body>
+<p><a href="/">&larr; All address books</a></p>
 <h1 th:text="'Address Book #' + ${addressBook.id}">Address Book</h1>
 
 <p th:if="${#lists.isEmpty(addressBook.buddies)}">This address book has no buddies yet.</p>
@@ -21,6 +22,7 @@
         <th>ID</th>
         <th>Name</th>
         <th>Phone number</th>
+        <th>Address</th>
     </tr>
     </thead>
     <tbody>
@@ -28,6 +30,7 @@
         <td th:text="${buddy.id}">1</td>
         <td th:text="${buddy.name}">Name</td>
         <td th:text="${buddy.phoneNumber}">613-555-0000</td>
+        <td th:text="${buddy.address}">1125 Colonel By Dr</td>
     </tr>
     </tbody>
 </table>

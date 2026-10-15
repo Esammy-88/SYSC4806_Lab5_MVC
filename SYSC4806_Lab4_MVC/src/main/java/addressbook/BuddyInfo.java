@@ -14,6 +14,7 @@ public class BuddyInfo {
 
     private String name;
     private String phoneNumber;
+    private String address;
 
     public BuddyInfo() {
         // Required by JPA.
@@ -22,6 +23,11 @@ public class BuddyInfo {
     public BuddyInfo(String name, String phoneNumber) {
         this.name = name;
         this.phoneNumber = phoneNumber;
+    }
+
+    public BuddyInfo(String name, String phoneNumber, String address) {
+        this(name, phoneNumber);
+        this.address = address;
     }
 
     public Long getId() {
@@ -44,10 +50,19 @@ public class BuddyInfo {
         this.phoneNumber = phoneNumber;
     }
 
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
     @Override
     public String toString() {
         return "BuddyInfo{id=" + id
                 + ", name='" + name + '\''
-                + ", phoneNumber='" + phoneNumber + '\'' + '}';
+                + ", phoneNumber='" + phoneNumber + '\''
+                + ", address='" + address + '\'' + '}';
     }
 }

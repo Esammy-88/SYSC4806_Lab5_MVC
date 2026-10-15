@@ -1,4 +1,4 @@
-SYSC 4806 Lab 4 - HTTP requests used to populate and view the address book
+SYSC 4806 Lab 5 - HTTP requests used to populate and view the address book
 ===========================================================================
 
 Start the app (mvn spring-boot:run, or run AddressBookApplication in IntelliJ).
@@ -14,8 +14,8 @@ The same requests are in requests.http for IntelliJ's HTTP client.
    curl -i -X POST http://localhost:8080/api/addressBooks -H "Content-Type: application/json" -d "{}"
 
 2. Create two buddies
-   curl -i -X POST http://localhost:8080/api/buddyInfos -H "Content-Type: application/json" -d "{\"name\":\"Alex\",\"phoneNumber\":\"613-555-0101\"}"
-   curl -i -X POST http://localhost:8080/api/buddyInfos -H "Content-Type: application/json" -d "{\"name\":\"Jordan\",\"phoneNumber\":\"613-555-0102\"}"
+   curl -i -X POST http://localhost:8080/api/buddyInfos -H "Content-Type: application/json" -d "{\"name\":\"Alex\",\"phoneNumber\":\"613-555-0101\",\"address\":\"1125 Colonel By Dr\"}"
+   curl -i -X POST http://localhost:8080/api/buddyInfos -H "Content-Type: application/json" -d "{\"name\":\"Jordan\",\"phoneNumber\":\"613-555-0102\",\"address\":\"75 Laurier Ave E\"}"
 
 3. Add each buddy to address book 1
    curl -i -X POST http://localhost:8080/api/addressBooks/1/buddies -H "Content-Type: text/uri-list" -d "http://localhost:8080/api/buddyInfos/1"
