@@ -35,8 +35,8 @@ jobs:
         for tc in ET.parse(sys.argv[1]).getroot().iter('testcase'):
             for kind in ('failure', 'error'):
                 for el in tc.findall(kind):
-                    msg = (el.get('message') or '') + ' | ' + (el.text or '').strip().splitlines()[0]
-                    print(f"::error title={tc.get('classname')}.{tc.get('name')}::{msg[:900]}")
+                    msg = (el.get('message') or '').strip().replace('\n', ' / ')
+                    print(f"::error title={tc.get('classname')}.{tc.get('name')}::{msg[:1500]}")
         PY
         done
         grep -h "ERROR\]" -A2 SYSC4806_Lab4_MVC/target/*.log 2>/dev/null | head -20 || true
