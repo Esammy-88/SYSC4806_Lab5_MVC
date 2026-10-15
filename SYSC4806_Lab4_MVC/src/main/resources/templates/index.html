@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>AddressBook</title>
+    <style>
+        body { font-family: sans-serif; margin: 2rem; max-width: 50rem; }
+        code { background: #f2f2f2; padding: 0.1rem 0.3rem; }
+    </style>
+</head>
+<body>
+<h1>AddressBook</h1>
+<p>SYSC 4806 Lab 5 &mdash; Spring Boot app deployed to Azure with GitHub Actions.</p>
+
+<h2>Address books</h2>
+<p th:if="${#lists.isEmpty(addressBooks)}">
+    No address books yet. Create one with <code>POST /api/addressBooks</code>.
+</p>
+<ul th:unless="${#lists.isEmpty(addressBooks)}">
+    <li th:each="book : ${addressBooks}">
+        <a th:href="@{/addressbook/{id}(id=${book.id})}" th:text="'Address Book #' + ${book.id}">Address Book #1</a>
+    </li>
+</ul>
+
+<h2>REST API</h2>
+<ul>
+    <li><a href="/api/addressBooks">/api/addressBooks</a></li>
+    <li><a href="/api/buddyInfos">/api/buddyInfos</a></li>
+</ul>
+</body>
+</html>

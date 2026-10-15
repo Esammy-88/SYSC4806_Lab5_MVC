@@ -11,13 +11,13 @@ Content-Type: application/json
 POST http://localhost:8080/api/buddyInfos
 Content-Type: application/json
 
-{"name": "Alex", "phoneNumber": "613-555-0101"}
+{"name": "Alex", "phoneNumber": "613-555-0101", "address": "1125 Colonel By Dr"}
 
 ###
 POST http://localhost:8080/api/buddyInfos
 Content-Type: application/json
 
-{"name": "Jordan", "phoneNumber": "613-555-0102"}
+{"name": "Jordan", "phoneNumber": "613-555-0102", "address": "75 Laurier Ave E"}
 
 ### 3. Add buddy 1 to address book 1
 POST http://localhost:8080/api/addressBooks/1/buddies
