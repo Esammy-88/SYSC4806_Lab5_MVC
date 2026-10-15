@@ -2,7 +2,7 @@
 
 ![CI](https://github.com/Esammy-88/SYSC4806_Lab5_MVC/actions/workflows/maven.yml/badge.svg)
 
-**Name:** Sammy [Last Name]
+**Name:** Sammy Eyongorock
 
 **Azure deployment:** https://<your-app-name>.azurewebsites.net
 
