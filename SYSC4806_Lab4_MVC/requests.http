@@ -1,0 +1,39 @@
+### IntelliJ HTTP Client file (Tools -> HTTP Client). Start the app first, then run top to bottom.
+### Assumes a fresh start so the first address book and buddies get id 1, 2, ...
+
+### 1. Create an address book
+POST http://localhost:8080/api/addressBooks
+Content-Type: application/json
+
+{}
+
+### 2. Create buddies
+POST http://localhost:8080/api/buddyInfos
+Content-Type: application/json
+
+{"name": "Alex", "phoneNumber": "613-555-0101"}
+
+###
+POST http://localhost:8080/api/buddyInfos
+Content-Type: application/json
+
+{"name": "Jordan", "phoneNumber": "613-555-0102"}
+
+### 3. Add buddy 1 to address book 1
+POST http://localhost:8080/api/addressBooks/1/buddies
+Content-Type: text/uri-list
+
+http://localhost:8080/api/buddyInfos/1
+
+### 4. Add buddy 2 to address book 1
+POST http://localhost:8080/api/addressBooks/1/buddies
+Content-Type: text/uri-list
+
+http://localhost:8080/api/buddyInfos/2
+
+### 5. Check the buddies of address book 1 (JSON)
+GET http://localhost:8080/api/addressBooks/1/buddies
+Accept: application/json
+
+### 6. Thymeleaf view of address book 1 (open in a browser)
+GET http://localhost:8080/addressbook/1
