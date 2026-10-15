@@ -21,6 +21,6 @@ jobs:
         cache: maven
 
     - name: Build and test with Maven
-      run: mvn -B package --file pom.xml
+      run: mvn -B package --file SYSC4806_Lab4_MVC/pom.xml
 
     # Dependency graph step removed; it needs extra permission tokens and fails otherwise
