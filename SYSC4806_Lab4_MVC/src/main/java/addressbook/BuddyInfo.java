@@ -30,11 +30,6 @@ public class BuddyInfo {
         this.address = address;
     }
 
-    public BuddyInfo(String name, String phoneNumber, String address) {
-        this(name, phoneNumber);
-        this.address = address;
-    }
-
     public Long getId() {
         return id;
     }
