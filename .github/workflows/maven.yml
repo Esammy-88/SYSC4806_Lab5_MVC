@@ -21,6 +21,22 @@ jobs:
         cache: maven
 
     - name: Build and test with Maven
-      run: mvn -B package --file SYSC4806_Lab4_MVC/pom.xml
+      run: mvn -B clean package --file SYSC4806_Lab4_MVC/pom.xml
 
     # Dependency graph step removed; it needs extra permission tokens and fails otherwise
+
+    - name: Show failing tests
+      if: failure()
+      run: |
+        for f in SYSC4806_Lab4_MVC/target/surefire-reports/*.xml; do
+          [ -e "$f" ] || continue
+          python3 - "$f" <<'PY'
+        import sys, xml.etree.ElementTree as ET
+        for tc in ET.parse(sys.argv[1]).getroot().iter('testcase'):
+            for kind in ('failure', 'error'):
+                for el in tc.findall(kind):
+                    msg = (el.get('message') or '').strip().replace('\n', ' / ')
+                    print(f"::error title={tc.get('classname')}.{tc.get('name')}::{msg[:1500]}")
+        PY
+        done
+        grep -h "ERROR\]" -A2 SYSC4806_Lab4_MVC/target/*.log 2>/dev/null | head -20 || true

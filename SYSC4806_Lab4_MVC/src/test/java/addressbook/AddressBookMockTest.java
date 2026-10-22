@@ -62,7 +62,7 @@ class AddressBookMockTest {
 
     @Test
     void postBuddyWithAddressThroughApi() throws Exception {
-        String location = mvc.perform(post("/api/buddyInfoes")
+        String location = mvc.perform(post("/api/buddyInfos")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content("{\"name\":\"Carol\",\"phoneNumber\":\"613-555-0303\",\"address\":\"75 Laurier Ave\"}"))
                 .andExpect(status().isCreated())
