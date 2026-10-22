@@ -4,7 +4,7 @@
 
 **Name:** Sammy Eyongorock
 
-**Azure deployment:** https://sammy-addressbook-4806.azurewebsites.net
+**Azure deployment:** [https://sammy-addressbook-4806.azurewebsites.net](https://sammy-addressbook-4806-etd7h9cfddg8dpdd.norwayeast-01.azurewebsites.net/)
 
 ## About
 
