@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Address Books</title>
+</head>
+<body>
+<h1>Address Books</h1>
+
+<table border="1">
+    <thead>
+    <tr><th>ID</th></tr>
+    </thead>
+    <tbody>
+    <tr th:each="book : ${addressBooks}">
+        <td><a th:href="@{/addressbook/{id}(id=${book.id})}" th:text="${book.id}">1</a></td>
+    </tr>
+    </tbody>
+</table>
+
+<form th:action="@{/addressbook}" method="post">
+    <button type="submit">Create new address book</button>
+</form>
+</body>
+</html>
